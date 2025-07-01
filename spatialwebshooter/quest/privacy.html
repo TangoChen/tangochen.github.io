@@ -89,10 +89,21 @@
     <p>The only data that Spatial Web Shooter saves is basic gameplay information, such as your local high score and collectible counts. All gameplay data is stored <em>locally</em> on your device and never sent anywhere. There are no online leaderboards, cloud backups, or external servers used by the game. If you choose to uninstall Spatial Web Shooter from your device, all of this local data will be permanently deleted. Reinstalling the app will start the game fresh without any previous scores or progress, since no backups are maintained.</p>
 
     <h2>Mixed Reality Features</h2>
-    <p>Spatial Web Shooter uses Meta Quest’s passthrough cameras and hand tracking to support its mixed reality (MR) experience. These features are used solely to enhance gameplay. The app <strong>cannot</strong> capture, store, or transmit any camera images or videos of your physical environment. All processing of passthrough visuals and hand tracking data is done on-device in real time for gameplay purposes. No imagery, 3D scans, or detailed environmental data are saved or shared.</p>
+    <p>Spatial Web Shooter uses Meta Quest’s passthrough camera, hand tracking, and Enhanced Spatial Services to deliver an immersive mixed reality experience:</p>
+    <ul>
+      <li><strong>Passthrough:</strong> Displays the real world during gameplay. The app <em>cannot</em> capture, store, or transmit any passthrough imagery—everything is processed on-device in real time.</li>
+      <li><strong>Hand Tracking:</strong> Detects your hand gestures for gameplay control. No hand tracking data is stored or transmitted; all processing is performed live on-device.</li>
+      <li><strong>Enhanced Spatial Services:</strong> Enables spatial understanding such as surface detection and spatial anchors, which are used to place and interact with virtual props realistically. This feature <strong>requires</strong> Meta’s <em>Spatial Data Permission</em> and may share abstracted spatial data (like plane geometry) with Meta servers to support advanced scene understanding. You can manage this permission under:<br>
+        <em>Settings → Privacy &amp; safety → App permissions → Spatial data</em>.</li>
+    </ul>
+    <p>Disabling Spatial data will reduce or disable environment-based features such as virtual-object placement and realistic collision. Without it, virtual props in Free Play may fall endlessly with no floor or environment to support them.</p>
 
-    <h2>No Third-Party Services or Ads</h2>
-    <p>Spatial Web Shooter does not include any advertising SDKs, analytics tools, or social features. The game is built using the Unity engine, but no Unity Ads, Unity Analytics, or Unity cloud services have been intentionally enabled. The game operates entirely offline and does not transmit any data to Unity or other third parties. While we do not use online services, you can refer to Unity’s privacy policy for more information about their practices: <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy" target="_blank">https://unity.com/legal/game-player-and-app-user-privacy-policy</a>.</p>
+
+    <h2>Use of Device-Level Services & No Ads</h2>
+    <p>Spatial Web Shooter does not include any advertising SDKs, analytics tools, or social features. The game is built using the Unity engine, but no Unity Ads, Unity Analytics, or Unity cloud services have been intentionally enabled. The game operates entirely offline and does not transmit any gameplay data to Unity or other third parties.</p>
+    <p>For mixed reality functionality, the game uses Meta Quest’s <strong>Enhanced Spatial Services</strong>. This is a device-level permission that enables scene detection and spatial mapping by sharing abstracted environmental data (e.g., plane geometry) with Meta servers to support features beyond the headset's basic capabilities. The game does not capture any imagery, videos, or personal data, and only uses this service to detect physical surfaces for gameplay.</p>
+    <p>To learn more about this permission and its effects, please visit: <a href="https://www.meta.com/help/quest/625635239532590" target="_blank">Meta Enhanced Spatial Services FAQ</a>.</p>
+    <p>While we do not use or transmit user data from online services ourselves, you can refer to Unity’s privacy policy for more information about their practices: <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy" target="_blank">https://unity.com/legal/game-player-and-app-user-privacy-policy</a>.</p>
 
     <h2>Children’s Privacy</h2>
     <p>Spatial Web Shooter is not intended for children under the age of 13. We do not knowingly collect any information from users under 13. Since the game collects no personal data, no child’s information is stored or tracked.</p>
