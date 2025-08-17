@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spatial Web Shooter</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #0f0f1c, #1a1a40, #000000);
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+
+    header {
+      background: rgba(10, 10, 30, 0.9);
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+      border-bottom: 2px solid #1a73e8;
+    }
+    header h1 {
+      font-size: 2.2rem;
+      margin: 0;
+      text-shadow: 0 0 10px #1a73e8;
+    }
+
+    nav {
+      background: rgba(20, 20, 40, 0.95);
+      text-align: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #1a73e8;
+    }
+    nav a {
+      color: #e0e0e0;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #1a73e8;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      margin-bottom: 50px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+
+    h2 {
+      color: #1a73e8;
+      margin-bottom: 15px;
+      text-shadow: 0 0 6px rgba(26,115,232,0.6);
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 20px;
+    }
+
+    ul li {
+      position: relative;
+      margin-bottom: 12px;
+      padding-left: 25px;
+      display: flex;
+      align-items: center;
+    }
+
+    ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #42a5f5, #1a73e8);
+      box-shadow: 0 0 5px rgba(66,165,245,0.7);
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    ul li span.content {
+      margin-left: 10px;
+    }
+
+    ul li .btn {
+      padding: 4px 16px; 
+      font-size: 0.95rem;
+    }
+
+    .faq-item {
+      margin-bottom: 15px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 10px;
+    }
+    .faq-question {
+      cursor: pointer;
+      font-weight: bold;
+      margin: 0;
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+    .faq-question:hover {
+      color: #1a73e8;
+    }
+    .faq-answer {
+      display: none;
+      margin-top: 8px;
+      color: #ddd;
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #1a73e8, #0d47a1);
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      margin-top: 10px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .btn:hover {
+      background: linear-gradient(135deg, #42a5f5, #1565c0);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 10px;
+      background: rgba(10, 10, 30, 0.95);
+      color: #bbb;
+      border-top: 1px solid #1a73e8;
+      margin-top: 40px;
+    }
+    a:not(.btn):not(nav a) {
+      color: #42a5f5;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      text-shadow: 0 0 5px rgba(66,165,245,0.7);
+    }
+
+    a:not(.btn):not(nav a):hover {
+      color: #1a73e8;
+      text-decoration: underline;
+      text-shadow: 0 0 8px rgba(26,115,232,0.9);
+    }
+    .video-container {
+      max-width: 800px;
+      margin: 20px auto;
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .highlight {
+      font-weight: bold;
+      color: #1a73e8;
+      background: rgba(26,115,232,0.1);
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    #supported {
+      background: rgba(255,255,255,0.05);
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      margin-bottom: 50px;
+    }
+
+    #supported h2 {
+      color: #1a73e8;
+      margin-bottom: 15px;
+      text-shadow: 0 0 6px rgba(26,115,232,0.6);
+    }
+
+    #supported p {
+      margin-bottom: 10px;
+      color: #ddd;
+    }
+
+    #supported strong {
+      color: #42a5f5;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Spatial Web Shooter – Quest Edition</h1>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main>
+    <section id="about">
+      <h2>About the Game</h2>
+      <p><strong>Spatial Web Shooter</strong> is all about web shooting — with tons of unique experiences to bring your superpower dream to life like never before.</p>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/1f0EZOnKvTU?si=KLCBJAlp4Qr0PCuY" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+        </iframe>
+      </div>
+      <ul>
+        <li>Shoot webs freely across your space to live out your childhood dream — simple yet satisfying!</li>
+        <li>Place and interact with over 20 fun, physics-based props for endless possibilities.</li>
+        <li>Enhance immersion with Reality Enhancement Props, letting your webs come alive as they interact with the environment.</li>
+        <li>Use Mirror prop to see yourself reflected with real-time web effects. For the first time ever, you can actually see yourself as the web-powered hero. 
+        <li>Take on thrilling challenges such as Dinosaur Fight, Treasure Catch, and Web Escape. Earn Web Points, redeem Mystery Boxes, and unlock new props.</li>
+        <li>Play with either hand tracking or controllers. Feel every action with controller haptic feedback.</li>
+      </ul>
+    </section>
+
+    <section id="supported">
+      <h2>Supported Devices & Languages</h2>
+      <p><strong>Supported Devices:</strong> Meta Quest 2, Meta Quest 3, Meta Quest 3S, Meta Quest Pro</p>
+      <p><strong>Supported Languages:</strong> English, 中文 - Chinese (China), Français - French (France), Deutsch - German, 日本語 - Japanese, 한국어 - Korean, Español - Spanish (Spain)</p>
+    </section>
+
+    <section id="faq">
+      <h2>Frequently Asked Questions (FAQ)</h2>
+
+      <div class="faq-item">
+        <p class="faq-question">1. How many virtual props are there now? Will there be more?</p>
+        <p class="faq-answer">
+          - There are currently <span class="highlight">23 props</span>, including <span class="highlight">7 Reality Enhanceable props</span> and <span class="highlight">1 Super Prop</span>.<br>
+          - More props will be developed and added in future updates.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-question">2. What is Super Prop?</p>
+        <p class="faq-answer">
+          - Super Prop is a more advanced prop that you can purchase directly with Web Points (earned through Challenges), so you don’t need to rely on random Mystery Boxes. It costs more Web Points than regular props.<br>
+          - However, <span class="highlight">the latest Super Prop is always free to unlock</span>. Currently, the Dinosaur is the first and only Super Prop, so you can <span class="highlight">unlock it for free until the next one is released</span>.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-question">3. How do I get the mirror prop as soon as possible?</p>
+        <p class="faq-answer">
+          - Normally, you earn Web Points by completing challenges and then open Mystery Boxes in hopes of obtaining it.<br>
+          - However, there is a method to <span class="highlight">get the Mirror prop directly without spending any Web Points</span>. For full details, please join the <a href="https://discord.gg/Jq7ZpHp5mw">Discord community</a>.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-question">4. Cannot enter Free Play mode?</p>
+        <p class="faq-answer">
+          - This issue only occurred in early development builds and has already been fixed in the release version. It happened when previously placed props were saved in a format that Free Play could not load.<br>
+          - If this somehow happens, go to the Home page, tap About, then tap the title "Spatial Web Shooter" at least 3 times. This will clear the old prop scene data, and you should then be able to enter Free Play normally. (Your unlocked props will not be affected.)
+        </p>
+      </div>
+      
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>If you encounter issues that can’t be resolved with the FAQ, you can reach out to the developer:</p>
+      <ul>
+        <li>
+          <strong>Official Support Email:</strong>
+          <span class="content"><a href="mailto:tan9ochen+sws@gmail.com">tan9ochen+sws@gmail.com</a></span>
+        </li>
+        <li>
+          <strong>Discord Community:</strong>
+          <span class="content"><a href="https://discord.gg/Jq7ZpHp5mw" class="btn">Join Discord</a></span>
+        </li>
+        <li>
+          <strong>Developer's Blog:</strong>
+          <span class="content"><a href="http://tangochen.com">http://TangoChen.com</a></span>
+        </li>
+          <li>
+          <strong>X (Twitter):</strong>
+          <span class="content"><a href="http://x.com/TangoChen">@TangoChen</a></span>
+        </li>
+      </ul>
+    </section>
+
+  <footer>
+    &copy; 2025 Jingzhou Chen. All rights reserved.<br>
+    <a href="privacy.html" target="_blank">Privacy Policy</a> | 
+    <a href="terms.html" target="_blank">Terms of Service</a>
+  </footer>
+
+  <script>
+    // FAQ toggle
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+  </script>
+</body>
+</html>
